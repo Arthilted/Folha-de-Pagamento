@@ -1,0 +1,132 @@
+<DOCTYPE HTML/>
+    <html lang = pt-br>
+        <head> 
+            <meta charset = "UTF-8"/>
+            <title>Formulário</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <Script type="text/javaScript">
+            <style rel="stylesheet" type="text/css">
+            #Form2{
+                border: 500px;
+            }
+            </style>
+function send(){
+
+                   var nome = Form2.Iome.value;
+                   var email = Form2.IEmail.value;
+                   var years = Form2.Iidade.value;
+                   var login = Form2.ILogin.value;
+                   var senha = Form2.ISenha.value;
+                   var versenha = Form2.IRSenha.value;
+                   var arroba = email.indexOf("@");
+                   
+
+if(nome == "") {
+    alert("Por favor, insira seu nome!");
+    Form2.inome.Focus();
+    return false;
+}
+if(Form2.Iome.value.length <= 9) {
+    alert("Por favor, insira seu nome completo!");
+    Form2.Iome.Focus();
+    return false;
+}
+    if (years == "") {
+        alert("Por favor, insira sua idade!");
+        Form2.idade.Focus();
+        return false;
+    }
+    if (years <= 0) {
+        alert("Por favor, insira sua idade verdadeira!");
+        Form2.idade.Focus();
+        return false;
+    }
+    if (years >= 100) {
+        alert("Por favor, insira sua idade verdadeira!");
+        Form2.idade.Focus();
+        return false;
+    }
+        if (email == "") {
+            alert("Por favor, insira seu email!");
+            Form2.Email.Focus();
+            return false;
+        }
+        if (arroba < 2) {
+            alert("Por favor, insira seu email corretamente!");
+            Form2.Email.Focus();
+            return false;
+        }
+            if (login == "") {
+            alert("Por favor, insira seu login!");
+            Form2.Login.Focus();
+            return false;      
+            }
+                if (senha == "") {
+                    alert("Por favor, insira sua senha!");
+                    Form2.password.Focus();
+                    return false;      
+                }
+                if(senha.length < 9) {
+                    alert("Por favor, insira uma senha segura, com pelo menos 10 dígitos!");
+                    Form2.password.Focus();
+                    return false;
+                }
+                if (versenha == "") {
+                    alert("Por favor, confira sua senha!");
+                    Form2.Repassword.Focus();
+                    return false;      
+                }
+                if (senha != versenha) {
+                    alert("Senhas diferentes!");
+                    Form2.Repassword.Focus();
+                    return false;      
+                }
+                else {
+                        alert( "Parabéns " + nome + "! Seu formulário foi preenchido corretamente! Seu login agora é: " + login + ". Não esquecendo que o email registrado foi: " + email +".");
+                }   
+        }
+            </Script>
+        </head>
+        <body style="background-color: cornflowerblue"> 
+                <center><form method="GET" id="Form2" action="sla.php" style="color:white" style="padding-top:15%;" >
+                    <BR>
+                    <BR>
+                    <i><header>Formulário</header></i>
+                    <BR>
+                    <div>
+                        <label for = "Iome"> Nome: </label>
+                        <input id = "Iome" Type = "text" name="inome"/>
+                    </div>
+                    <BR>
+                    <div>
+                        <label for = "Iidade"> Idade: </label>
+                        <input id = "Iidade" Type = "number" name="idade"/>
+                    </div>
+                    <BR>
+                    <div>
+                        <label for = "IEmail">Email: </label>
+                        <input id = "IEmail" Type = "text" name="Email" id="em"/>
+                    </div>
+                    <BR>
+                    <div>
+                        <label for = "ILogin">Login: </label>
+                        <input id = "ILogin" Type = "text" name="Login" id="log"/>
+                    </div>
+                    <BR>
+                    <div>
+                        <label for = "ISenha">Senha: </label>
+                        <input id = "ISenha" Type = "password" id="Senha" name="password"/>
+                    </div> 
+                    <BR>
+                        <div>
+                            <label for = "IRSenha">Confirmar senha:</label>
+                            <input id = "IRSenha" Type = "password" id="RepSenha" name="Repassword" />
+                        </div>      
+                    <BR>     
+                        <input type="submit" class="btn btn-primary" id="BEnviar" name="Send" value="Enviar" onclick="return send()"/>
+                        <input type="reset" id="BLimpar" name="Clean"  class="btn btn-danger" value="Limpar"/>     
+                        
+                </form> </center>
+    </body>
+</html>
